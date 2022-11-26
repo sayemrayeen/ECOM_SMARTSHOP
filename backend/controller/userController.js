@@ -57,9 +57,9 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc Get user profile
-// @route GET /api/users/profile
-// @access Private
+// @desc    Get user profile
+// @route   GET /api/users/profile
+// @access  Private
 const getUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
 
@@ -71,8 +71,8 @@ const getUserProfile = asyncHandler(async (req, res) => {
       isAdmin: user.isAdmin,
     });
   } else {
-    res.status(401);
-    throw new Error("Invalid email or password");
+    res.status(404);
+    throw new Error("User not found");
   }
 });
 
