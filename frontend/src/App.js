@@ -7,6 +7,7 @@ import ProductScreen from "./screens/ProductScreen";
 import CartScreen from "./screens/CartScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <main className="py-3">
         <Container>
           <Routes>
+            <Route path="/profile" element={<ProfileScreen />} exact />
             <Route path="/login" element={<LoginScreen />} exact />
             <Route path="/register" element={<RegisterScreen />} exact />
             <Route path="/" element={<HomeScreen />} exact />
