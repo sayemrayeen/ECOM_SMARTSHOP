@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Form, Button, Col, FormGroup } from "react-bootstrap";
+import { Form, Button, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import FormContainer from "../Components/FormContainer";
 import CheckoutSteps from "../Components/CheckoutSteps";
 import { savePaymentMethod } from "../actions/cartActions";
+import { useNavigate } from "react-router-dom";
 
 const PaymentScreen = () => {
   const history = useNavigate();
@@ -15,7 +15,7 @@ const PaymentScreen = () => {
     history("/shipping");
   }
 
-  const [paymentMethod, setPaymentMethod] = useState("paypal");
+  const [paymentMethod, setPaymentMethod] = useState("PayPal");
 
   const dispatch = useDispatch();
 
@@ -24,13 +24,14 @@ const PaymentScreen = () => {
     dispatch(savePaymentMethod(paymentMethod));
     history("/placeorder");
   };
+
   return (
     <FormContainer>
       <CheckoutSteps step1 step2 step3 />
+      <h1>Payment Method</h1>
       <Form onSubmit={submitHandler}>
-        <FormGroup>
+        <Form.Group>
           <Form.Label as="legend">Select Method</Form.Label>
-
           <Col>
             <Form.Check
               type="radio"
@@ -43,16 +44,17 @@ const PaymentScreen = () => {
             ></Form.Check>
             <Form.Check
               type="radio"
-              label="Phonepe"
-              id="Phonepe"
+              label="Stripe"
+              id="Stripe"
               name="paymentMethod"
-              value="Phonepe"
+              value="Stripe"
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></Form.Check>
           </Col>
-        </FormGroup>
-        <Button variant="primary" type="submit" className="my-3">
-          Payment
+        </Form.Group>
+
+        <Button type="submit" variant="primary">
+          Continue
         </Button>
       </Form>
     </FormContainer>
