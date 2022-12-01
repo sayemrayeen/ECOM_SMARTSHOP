@@ -125,7 +125,7 @@ const ProductEditScreen = () => {
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group>
+            <Form.Group controlId="image">
               <Form.Label>Image</Form.Label>
               <Form.Control
                 type="text"
@@ -135,7 +135,6 @@ const ProductEditScreen = () => {
               ></Form.Control>
               <Form.Control
                 type="file"
-                id="image-file"
                 label="Choose File"
                 custom="true"
                 onChange={uploadFileHandler}
