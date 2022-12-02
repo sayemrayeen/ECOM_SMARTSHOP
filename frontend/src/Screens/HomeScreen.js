@@ -5,23 +5,18 @@ import Product from "../Components/Product";
 import Message from "../Components/Message";
 import Loader from "../Components/Loader";
 import { listProducts } from "../actions/productsActions";
+import { useParams } from "react-router-dom";
 
-//import axios from "axios";
 const HomeScreen = () => {
+  const { keyword } = useParams();
+  const keywords = keyword;
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
-  // const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    dispatch(listProducts());
-    // const fetchProduct = async () => {
-    //   const { data } = await axios.get("/api/products");
-    //   setProducts(data);
-    // };
-    // fetchProduct();
-  }, [dispatch]);
-  //const products = [];
+    dispatch(listProducts(keywords));
+  }, [dispatch, keywords]);
   return (
     <>
       <h1>latest producs</h1>
