@@ -20,6 +20,10 @@ h2 {
   margin: 0.1rem;
 }
 
+.card-title {
+  text-decoration: none;
+}
+
 /* carousel */
 .carousel-item-next,
 .carousel-item-prev,

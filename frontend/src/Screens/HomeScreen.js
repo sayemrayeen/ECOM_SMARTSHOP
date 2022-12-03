@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom";
 import Paginate from "../Components/Paginate";
 import ProductCarousel from "../Components/ProductCarousel";
 import { Link } from "react-router-dom";
+import Meta from "../Components/Meta";
 
 const HomeScreen = () => {
   const { keyword, pageNumber } = useParams();
@@ -23,6 +24,7 @@ const HomeScreen = () => {
   }, [dispatch, keywords, pageNumbers]);
   return (
     <>
+      <Meta />
       {!keyword ? (
         <ProductCarousel />
       ) : (

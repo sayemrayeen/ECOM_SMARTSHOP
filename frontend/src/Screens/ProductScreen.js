@@ -19,6 +19,7 @@ import {
 } from "../actions/productsActions";
 import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstatnts";
 import { useParams } from "react-router-dom";
+import Meta from "../Components/Meta";
 
 const ProductScreen = () => {
   const [qty, setQty] = useState(1);
@@ -77,6 +78,7 @@ const ProductScreen = () => {
         <Message variant="danger">{error}</Message>
       ) : (
         <>
+          <Meta title={product.name} />
           <Row>
             <Col md={6}>
               <Image src={product.image} alt={product.name} fluid />
