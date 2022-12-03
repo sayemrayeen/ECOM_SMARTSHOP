@@ -7,6 +7,8 @@ import Loader from "../Components/Loader";
 import { listProducts } from "../actions/productsActions";
 import { useParams } from "react-router-dom";
 import Paginate from "../Components/Paginate";
+import ProductCarousel from "../Components/ProductCarousel";
+import { Link } from "react-router-dom";
 
 const HomeScreen = () => {
   const { keyword, pageNumber } = useParams();
@@ -21,6 +23,13 @@ const HomeScreen = () => {
   }, [dispatch, keywords, pageNumbers]);
   return (
     <>
+      {!keyword ? (
+        <ProductCarousel />
+      ) : (
+        <Link to="/" className="btn btn-light">
+          Go Back
+        </Link>
+      )}
       <h1>latest producs</h1>
       {loading ? (
         <Loader />
