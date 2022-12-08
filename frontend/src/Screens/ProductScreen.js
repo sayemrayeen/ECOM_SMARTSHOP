@@ -54,7 +54,7 @@ const ProductScreen = () => {
   }, [dispatch, id, product, successProductReview]);
 
   const addToCartHandler = () => {
-    history.push(`/cart/${id}?qty=${qty}`);
+    history(`/cart/${id}?qty=${qty}`);
   };
 
   const submitHandler = (e) => {
